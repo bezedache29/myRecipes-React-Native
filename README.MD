@@ -7,3 +7,4 @@ Création d'une application mobile avec React Native listant des recettes
 Utilisation d'une API de recettes
 
 - https://spoonacular.com/food-api
+- 150 requetes gratuite par jour
