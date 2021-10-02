@@ -10,8 +10,9 @@ const recipesList = (state = initialState, action) => {
 
     case GET_ALL:
       return {
+        ...state,
         selectedRecipe: state.selectedRecipe,
-        list: [...state.list, action.payload.recipes]
+        list: action.payload.recipes
       }
 
     default:
