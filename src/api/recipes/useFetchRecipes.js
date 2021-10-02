@@ -1,4 +1,6 @@
 import axios from "axios"
+import { useDispatch } from "react-redux"
+import { loadAllRecipes } from "../../redux/recipes/actionRecipes"
 
 // Custom Hooks pour récupérer toute les recettes
 // const { getAllRecipes } = useFetchRecipes()
@@ -11,6 +13,8 @@ const MAX_PER_PAGE = 30
 
 export const useFetchRecipes = () => {
 
+  const dispatch = useDispatch()
+
   const getAllRecipes = async () => {
     try {
       const response = await axios.get(API_URL, {
@@ -19,7 +23,7 @@ export const useFetchRecipes = () => {
           number: MAX_PER_PAGE
         }
       })
-      console.log('response', response.data.results)
+      dispatch(loadAllRecipes(response.data.results))
 
     } catch (error) {
       console.error('Error in getAllRecipes', error)

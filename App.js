@@ -9,7 +9,9 @@ import {
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen'
+import { Provider } from 'react-redux'
 import RecipesList from './src/pages/RecipesList/RecipesList'
+import { store } from './src/redux/store'
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark'
@@ -19,10 +21,12 @@ const App = () => {
   }
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <RecipesList />
-    </SafeAreaView>
+    <Provider store={store}>
+      <SafeAreaView style={backgroundStyle}>
+        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        <RecipesList />
+      </SafeAreaView>
+    </Provider>
   )
 }
 
