@@ -21,9 +21,7 @@ const RecipesList = () => {
 
   return (
     <>
-      <Text>Recipes List</Text>
       <FlatList
-        // contentContainerStyle={{ flexGrow: 1 }}
         data={allRecipes}
         keyExtractor={(item, index) => index.toString()}
         renderItem={renderItem}
