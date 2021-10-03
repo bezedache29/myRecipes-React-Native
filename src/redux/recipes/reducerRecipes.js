@@ -1,4 +1,4 @@
-import { GET_ALL } from "./type"
+import { GET_ALL, GET_ONE } from "./type"
 
 const initialState = {
   list: [],
@@ -13,6 +13,13 @@ const recipesList = (state = initialState, action) => {
         ...state,
         selectedRecipe: state.selectedRecipe,
         list: action.payload.recipes
+      }
+
+    case GET_ONE:
+      return {
+        ...state,
+        selectedRecipe: action.payload.recipe,
+        list: state.list
       }
 
     default:
