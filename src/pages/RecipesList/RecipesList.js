@@ -5,7 +5,7 @@ import { useFetchRecipes } from '../../api/recipes/useFetchRecipes'
 import { getRecipesList } from '../../redux/recipes/selectorsRecipes'
 import RecipeTile from './components/RecipeTile'
 
-const RecipesList = () => {
+const RecipesList = ({ navigation }) => {
 
   const { getAllRecipes } = useFetchRecipes()
 
@@ -16,7 +16,7 @@ const RecipesList = () => {
   }, [])
 
   const renderItem = ({item}) => {
-    return <RecipeTile item={item} />
+    return <RecipeTile item={item} navigation={navigation} />
   }
 
   return (

@@ -1,14 +1,14 @@
 import React from 'react'
-import { Image, View, Text, StyleSheet } from 'react-native'
+import { Image, View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-const RecipeTile = ({ item }) => {
+const RecipeTile = ({ item, navigation }) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={() => navigation.navigate('RecipeDetails', {id: item.id})} style={styles.container}>
       <Image source={{uri: item.image}} style={styles.image} />
       <View style={styles.subContainer}>
         <Text style={styles.title}>{item.title}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
