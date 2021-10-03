@@ -15,6 +15,7 @@ import { store } from './src/redux/store'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native'
 import RecipeDetails from './src/pages/RecipeDetails/RecipeDetails'
+import TasksList from './src/pages/Tasks/TasksList'
 
 const Stack = createNativeStackNavigator()
 
@@ -30,6 +31,7 @@ const App = () => {
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen name="TasksList" component={TasksList} />
           <Stack.Screen name="RecipesList" component={RecipesList} />
           <Stack.Screen name="RecipeDetails" component={RecipeDetails} />
         </Stack.Navigator>
