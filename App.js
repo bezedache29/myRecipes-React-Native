@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  SafeAreaView,
   StatusBar,
   StyleSheet,
   useColorScheme,
@@ -13,6 +12,11 @@ import { Provider } from 'react-redux'
 import RecipesList from './src/pages/RecipesList/RecipesList'
 import { store } from './src/redux/store'
 
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { NavigationContainer } from '@react-navigation/native'
+
+const Stack = createNativeStackNavigator()
+
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark'
 
@@ -22,10 +26,12 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <SafeAreaView style={backgroundStyle}>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <RecipesList />
-      </SafeAreaView>
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="RecipesList" component={RecipesList} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </Provider>
   )
 }
