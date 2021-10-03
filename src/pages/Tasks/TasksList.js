@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FlatList, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, Text, TouchableOpacity, View, SafeAreaView } from 'react-native'
 import Header from './components/Header'
 import TaskForm from './components/TaskForm'
 import TaskTile from './components/TaskTile'
@@ -21,7 +21,7 @@ const TasksList = () => {
   }
 
   return (
-    <>
+    <SafeAreaView style={{ flex: 1 }}>
       <FlatList
         ListHeaderComponent={
           <>
@@ -64,7 +64,7 @@ const TasksList = () => {
           {showForm ? '-' : '+'}
         </Text>
       </TouchableOpacity>
-    </>
+    </SafeAreaView>
   )
 }
 

@@ -9,15 +9,8 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen'
 import { Provider } from 'react-redux'
-import RecipesList from './src/pages/RecipesList/RecipesList'
 import { store } from './src/redux/store'
-
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { NavigationContainer } from '@react-navigation/native'
-import RecipeDetails from './src/pages/RecipeDetails/RecipeDetails'
-import TasksList from './src/pages/Tasks/TasksList'
-
-const Stack = createNativeStackNavigator()
+import AppRouter from './src/router/AppRouter'
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark'
@@ -29,13 +22,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="TasksList" component={TasksList} />
-          <Stack.Screen name="RecipesList" component={RecipesList} />
-          <Stack.Screen name="RecipeDetails" component={RecipeDetails} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <AppRouter />
     </Provider>
   )
 }
