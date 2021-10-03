@@ -15,12 +15,13 @@ export const useFetchRecipes = () => {
 
   const dispatch = useDispatch()
 
-  const getAllRecipes = async () => {
+  const getAllRecipes = async (page) => {
     try {
       const response = await axios.get(`${API_URL}/complexSearch`, {
         params: {
           apiKey: API_KEY,
-          number: MAX_PER_PAGE
+          number: MAX_PER_PAGE,
+          offset: page * MAX_PER_PAGE // A partir de 30 pages * le numero de page, il recherche les recettes
         }
       })
       dispatch(loadAllRecipes(response.data.results))
