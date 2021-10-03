@@ -3,7 +3,7 @@ import { Image, View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 const RecipeTile = ({ item, navigation }) => {
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('RecipeDetails', {id: item.id})} style={styles.container}>
+    <TouchableOpacity onPress={() => navigation.navigate('Détails de la recette', {id: item.id})} style={styles.container}>
       <Image source={{uri: item.image}} style={styles.image} />
       <View style={styles.subContainer}>
         <Text style={styles.title}>{item.title}</Text>
