@@ -1,7 +1,7 @@
 import { ADD_TASK, DELETE_TASK, TOGGLE_TASK } from "./type"
 
 const initialState = [
-  { id: 1, title: 'Ma première tâche', isCompleted: false}
+  // { id: 1, title: 'Ma première tâche', isCompleted: false}
 ]
 
 const tasksListOnStore = (state = initialState, action) => {

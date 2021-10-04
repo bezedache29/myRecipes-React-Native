@@ -13,9 +13,6 @@ const TasksList = () => {
 
   const tasksList = useSelector(getTasks)
 
-  console.log(tasksList)
-
-
   const renderItem = ({item}) => {
     return <TaskTile task={item} />
   }

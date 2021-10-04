@@ -1,10 +1,20 @@
 import React from 'react'
 import { Text, TouchableOpacity, View, StyleSheet } from 'react-native'
+import { useDispatch } from 'react-redux'
+import { addTaskOnStore } from '../../../redux/tasks/actionTasks'
 
 const RecipeDetailsTile = ({ item }) => {
+
+  const dispatch = useDispatch()
+
+  // Ajoute l'ingredient a la liste des courses
+  const addIngredientOnList = () => {
+    dispatch(addTaskOnStore(item.name))
+  }
+
   return (
     <View style={styles.ingredient}>
-      <TouchableOpacity style={styles.btnAdd}>
+      <TouchableOpacity style={styles.btnAdd} onPress={addIngredientOnList}>
         <Text style={{ color: 'white' }}>Ajouter</Text>
       </TouchableOpacity>
       <Text style={styles.ingredientName}>{item.name}</Text>
