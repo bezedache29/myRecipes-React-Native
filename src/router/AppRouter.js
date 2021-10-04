@@ -1,43 +1,85 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { Image, Text, View } from 'react-native'
 
 import RecipesStack from './RecipesStack'
 
 import TasksList from '../pages/Tasks/TasksList'
-import { Icon } from 'react-native-vector-icons/icon'
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Profil from '../pages/Profil/Profil'
 
 const Tabs = createBottomTabNavigator()
 
 const AppRouter = () => {
   return (
     <NavigationContainer>
-      {/* <Tabs.Navigator screenOptions={{ headerShown: false }} > */}
-      <Tabs.Navigator screenOptions={
-        ({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-
-            if (route.name === 'Recettes') {
-              iconName = focused
-                ? 'book-outline'
-                : 'book-outline';
-            } else if (route.name === 'Liste') {
-              iconName = focused ? 'book-outline' : 'book-outline';
-            }
-
-            // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-          tabBarActiveTintColor: 'tomato',
-          tabBarInactiveTintColor: 'gray',
-        }),
-        { headerShown: false }
-      } >
-        <Tabs.Screen name="Recettes" component={RecipesStack} />
-        <Tabs.Screen name="Liste" component={TasksList} />
-        <Tabs.Screen name="Profile" component={TasksList} />
+      <Tabs.Navigator screenOptions={{ headerShown: false, tabBarShowLabel: false }} >
+        <Tabs.Screen 
+          name="Recettes" 
+          component={RecipesStack} 
+          options={{ 
+            tabBarIcon: ({ focused }) => (
+              <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                <Image
+                  source={require('../../assets/icons/tabs/cook-book.png')}
+                  resizeMode="contain"
+                  style={{ 
+                    width: 25,
+                    height: 25,
+                    tintColor: focused ? '#028302' : '#748c94'
+                  }}
+                />
+                <Text style={{ color: focused ? '#028302' : '#748c94', fontSize: 12 }}>
+                  RECETTES
+                </Text>
+              </View>
+            )
+          }}
+        />
+        <Tabs.Screen 
+          name="Liste" 
+          component={TasksList} 
+          options={{ 
+            tabBarIcon: ({ focused }) => (
+              <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                <Image
+                  source={require('../../assets/icons/tabs/list.png')}
+                  resizeMode="contain"
+                  style={{ 
+                    width: 25,
+                    height: 25,
+                    tintColor: focused ? '#028302' : '#748c94'
+                  }}
+                />
+                <Text style={{ color: focused ? '#028302' : '#748c94', fontSize: 12 }}>
+                  LISTE
+                </Text>
+              </View>
+            )
+          }}
+        />
+        <Tabs.Screen 
+          name="Profile" 
+          component={Profil} 
+          options={{ 
+            tabBarIcon: ({ focused }) => (
+              <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                <Image
+                  source={require('../../assets/icons/tabs/user.png')}
+                  resizeMode="contain"
+                  style={{ 
+                    width: 25,
+                    height: 25,
+                    tintColor: focused ? '#028302' : '#748c94'
+                  }}
+                />
+                <Text style={{ color: focused ? '#028302' : '#748c94', fontSize: 12 }}>
+                  PROFILE
+                </Text>
+              </View>
+            )
+          }}
+        />
       </Tabs.Navigator>
     </NavigationContainer>
   )

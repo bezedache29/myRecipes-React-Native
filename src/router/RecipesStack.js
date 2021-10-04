@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import RecipesList from '../pages/RecipesList/RecipesList'
 import RecipeDetails from '../pages/RecipeDetails/RecipeDetails'
 
+
 const Stack = createNativeStackNavigator()
 
 const RecipesStack = () => {

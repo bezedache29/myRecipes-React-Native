@@ -28,10 +28,10 @@ const TasksList = () => {
             <Header />
             {showForm && <TaskForm />}
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
-              <Compteur direction={'left'} title={'Tâches créées'} nb={tasksList.length} />
+              <Compteur direction={'left'} title={'Aliments ajoutés'} nb={tasksList.length} />
               <Compteur 
                 direction={'right'} 
-                title={'Tâches éffectuées'} 
+                title={'Aliments achetés'} 
                 nb={tasksList.filter(task => task.isCompleted === true).length}
               />
             </View>

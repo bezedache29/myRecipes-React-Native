@@ -29,7 +29,7 @@ const TaskForm = () => {
         style={ styles.input }
         onChangeText={handleText}
         value={title}
-        placeholder="Nouvelle tâche"
+        placeholder="Nom aliment"
       />
       {/* <Button 
         onPress={onAddTask}
